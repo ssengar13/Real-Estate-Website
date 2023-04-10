@@ -57,6 +57,7 @@
 
 												<li class="nav-item"> <a class="nav-link" href="feature.php">Your Property</a> </li>
                                                 <li class="nav-item"> <a class="nav-link" href="submitproperty.php">Add Property</a> </li>
+                                                <li class="nav-item"> <a class="nav-link" href="contactus.php">User Query</a> </li>	
                                                 <li class="nav-item"> <a class="nav-link" href="logout.php">Logout</a> </li>	
 											</ul>
                                         </li>
