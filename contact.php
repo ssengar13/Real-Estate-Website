@@ -13,12 +13,12 @@ if(isset($_POST['send']))
 	{
 		
 		$sql="INSERT INTO contact (name,email,phone,message) VALUES ('$name','$email','$phone','$message')";
-		   $result=mysqli_query($con, $sql);
+		   $result=mysqli_query($con,$sql);
 		   if($result){
 			   $msg = "<p class='alert alert-success'>Message Send Successfully</p> ";
 		   }
 		   else{
-			   $error = "<p class='alert alert-warning'>Message Not Send Successfully</p> ";
+			   $error = "<p class='alert alert-warning'>Message Not Send Successfully " .mysqli_error($con) . "</p> ";
 		   }
 	}else{
 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
@@ -106,13 +106,15 @@ if(isset($_POST['send']))
                 <div class="row">
                     <div class="col-lg-4 mb-5 bg-primary">
                         <div class="contact-info">
-                            <h3 class="mb-4 mt-4 text-white">Contacts</h3>
+                            <h3 class="mb-4 mt-4 text-white">Contact</h3>
 							
                             <ul>
                                 <li class="d-flex mb-4"> <i class="fas fa-map-marker-alt text-white mr-2 font-13 mt-1"></i>
                                     <div class="contact-address">
                                         <h5 class="text-white">Address</h5>
-                                        <span class="text-secondary"><a href="https://goo.gl/maps/2Jqk25FT6YsrAkcG6">Sadguru Plaza Office No 03, Laxmi Chowk,Near Confert Hotel, Hinjawadi, Pune, Maharashtra 411057</a></span> 
+                                        <span class="text-secondary"><a href="https://goo.gl/maps/2Jqk25FT6YsrAkcG6">Prop Majestic Reality Services
+Aarambh Complex, Office No. 15, 4th Floor, Near Datta Mandir, Wakad, Pune - 411057
+</a></span> 
 										<!-- <span class="text-secondary">Collins Street West, Victoria 8007, Australia</span> -->
 										</div>
                                 </li>
@@ -126,7 +128,7 @@ if(isset($_POST['send']))
                                 <li class="d-flex mb-4"> <i class="fas fa-envelope text-white mr-2 font-13 mt-1"></i>
                                     <div class="contact-address">
                                         <h5 class="text-white">Email </h5>
-										<span class="d-table text-secondary"><a href="mailto:info@propmajestic.com">info@propmajestic.com</a></span>
+										<span class="d-table text-secondary"><a href="mailto:vishnuthorat@propmajestic.com">info@propmajestic.com</a></span>
 										<!-- <span class="text-secondary">helpline@homex.com</span> -->
 										</div>
                                 </li>

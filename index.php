@@ -81,12 +81,10 @@ include("config.php");
                                         <div class="form-group">
                                             <select class="form-control" name="type" required>
                                                 <option value="">Select Type *</option>
-												<option value="appartment">Appartment</option>
+												<option value="appartment">Apartment</option>
 												<option value="flat">Flat</option>
-												<option value="bunglow">Bunglow</option>
-												<option value="house">House</option>
-												<option value="villa">Villa</option>
-												<option value="office">Office</option>
+												<option value="bungalow">Bungalow</option>
+												<option value="commercial">Commercial</option>
                                             </select>
                                         </div>
                                     </div>
@@ -96,6 +94,7 @@ include("config.php");
                                                 <option value="">Select Status *</option>
 												<option value="rent">Rent</option>
 												<option value="sale">Sale</option>
+												<option value="rent/sale">Rent/sale</option>
                                             </select>
                                         </div>
                                     </div>
@@ -177,6 +176,7 @@ include("config.php");
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-md-6 col-lg-4 pb-1">
+                            <a href="stateproperty.php?id=<?php echo $row['city']?>">
                             <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/1.jpg" alt="">
                                 <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
 									<?php
@@ -190,6 +190,7 @@ include("config.php");
 												echo $total;?> Properties Listed</span> </div>
 									<?php } ?>
                             </div>
+                            </a>
                         </div>
                         <div class="col-md-6 col-lg-4 pb-1">
                             <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/2.jpg" alt="">
@@ -268,7 +269,9 @@ include("config.php");
 									?>
 								
                                     <div class="col-md-6 col-lg-4">
+                                        <a href="propertydetail.php?pid=<?php echo $row['0'];?>">
                                         <div class="featured-thumb hover-zoomer mb-4">
+                                            
                                             <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage" style="height:340px">
                                                 <div class="featured bg-primary text-white">New</div>
                                                 <div class="sale bg-secondary text-white text-capitalize">For <?php echo $row['5'];?></div>
@@ -294,6 +297,7 @@ include("config.php");
                                                 </div> -->
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
 									<?php } ?>
 
@@ -548,15 +552,16 @@ window.onbeforeunload = function () {
     function checkForBtnInterval() {
         setInterval(() => {
             const userIconSvg = document.querySelector(".user_icon_svg");
-            if(window.innerWidth <= 520){
+            if(window.innerWidth < 600){
             if(userIconSvg) {
                 const closeBtn = document.querySelector(".closebtn");
                 if(closeBtn) {
 
                 } else {
                     var chatbotHeader = document.querySelector(".header_right.absolute.right-0");
-                    var closeButton = '<span class="mr-1 flex closebtn"><svg class="w-full h-full" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#ffffff" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"></path></svg></span>';
-                    chatbotHeader.innerHTML += closeButton;
+                    var closeButton = '<span class="mr-1 flex closebtn"><svg class="w-full h-full" style="margin-top:-23px;height:29px;" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#ffffff" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"></path></svg></span>';
+                    chatbotHeader.innerHTML = closeButton;
+                    console.log(chatbotHeader);
                     const closeBtn = document.querySelector(".closebtn");
                     closeBtn.addEventListener("click", closeChatbotWidget);
                 }
@@ -575,35 +580,74 @@ window.onbeforeunload = function () {
         var workativCloseBth = document.querySelector(".relative.inline-flex.w-full.justify-end>button")
         workativCloseBth.click();
     }
+    
+    // setInterval(() => {
+    //     console.log(document.querySelectorAll("button"));
+    // }, 1000);
 
  window.onload = () => {
+    //  alert(window.innerWidth);
     checkForBtnInterval();
-
-    // function keepCheckingContent(){
+    
+    setTimeout(() => {
+        var chat_bot = document.querySelectorAll("button");
+    var width = window.innerWidth;
+    
+        if(width > 600){
+            chat_bot[2].click();
+        }
+        // console.log(chat_bot);
+    }, 2000);
+     
+    //  setInterval(() => {
+    //     //  if(keepCheckingContent()){
+    //     //      var width = window.innerWidth;
+    //     //     var chat_bot = document.querySelectorAll("button");
+    //     //     //  alert('Chat Content Loaded');
+    //     //     console.log(chat_bot);
+    //     //  }
+    //     var chat_bot = document.querySelectorAll("button");
     //     var chat = document.getElementById("assistant-widget-05cb6cd7-272e-4c5a-9a4c-fb1036d47ed4");
     //     if(chat.innerHTML == ""){
-    //         return true;
+            
+    //         console.log(chat_bot);
     //     } else {
-    //         return false;
+    //         // return false;
     //     }
-    // }
+    //  }, 1000)
+    // //  setTimeout(() => {
+    // //      if(width > 600){
+    // //          chat_bot[2].click();
+    // //      }
+         
+    // //  }, 2000);
+
+
+    function keepCheckingContent(){
+        var chat = document.getElementById("assistant-widget-05cb6cd7-272e-4c5a-9a4c-fb1036d47ed4");
+        if(chat.innerHTML == ""){
+            return true;
+        } else {
+            return false;
+        }
+    }
     // setTimeout(() => {
     //     var chat_bot = document.querySelectorAll("button");
-    //     var header_left = document.getElementsByClassName("width_container_mobile"); //document.querySelectorAll('div .width_container_mobile');
+    //     // var header_left = document.getElementsByClassName("width_container_mobile"); //document.querySelectorAll('div .width_container_mobile');
     //     var width = window.innerWidth;
     //     var header_right = document.querySelectorAll(".header_right");
     //     // alert(width);
     //     if(width > 600){
     //         chat_bot[2].click();
     //     }
-    //     setInterval(() => {
-    //         if(!keepCheckingContent()){
-    //             var header_left = document.getElementsByClassName("width_container_mobile");
-    //             if(header_left.length > 0){
-    //                 header_left[0].setAttribute("style", "z-index: 0; width: 100%; transform: none; margin: 0px;");
-    //             }
-    //         }
-    //     }, 2000);
+    //     // setInterval(() => {
+    //     //     if(!keepCheckingContent()){
+    //     //         var header_left = document.getElementsByClassName("width_container_mobile");
+    //     //         if(header_left.length > 0){
+    //     //             header_left[0].setAttribute("style", "z-index: 0; width: 100%; transform: none; margin: 0px;");
+    //     //         }
+    //     //     }
+    //     // }, 2000);
     // }, 2000);
     
 }

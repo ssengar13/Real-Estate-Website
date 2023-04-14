@@ -102,7 +102,7 @@ include("config.php");
 								$stype=$_REQUEST['stype'];
 								$city=$_REQUEST['city'];
 								
-								$sql="SELECT * FROM property WHERE (type='{$type}' AND stype='{$stype}') AND city LIKE '%$city%' order by date DESC";
+								$sql="SELECT * FROM property WHERE (type LIKE '%$type%' AND stype LIKE '%$stype%') AND city LIKE '%$city%' order by date DESC";
 								//SELECT * FROM `property` WHERE type='office' or type='office' and stype='sale' or stype='rent' and city='valsad' OR state='mumbai'
 								//SELECT * FROM `property` WHERE type='office' and stype='sale'  and city='valsad' OR state='mumbai'
 								$result=mysqli_query($con,$sql);
@@ -116,8 +116,9 @@ include("config.php");
 							?>
 									
                             <div class="col-md-6">
+                            <a href="propertydetail.php?pid=<?php echo $row['0'];?>">
                                 <div class="featured-thumb hover-zoomer mb-4">
-                                    <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage" style="width: 25rem; height: 18rem; object-fit: cover;">
+                                    <div class="overlay-black overflow-hidden position-relative " style="height:209.83px;"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
                                         
                                         <div class="sale bg-secondary text-white">For <?php echo $row['5'];?></div>
                                         <!-- <div class="price text-primary text-capitalize">$<?php echo $row['13'];?> <span class="text-white"><?php echo $row['12'];?> Sqft</span></div> -->
@@ -125,7 +126,7 @@ include("config.php");
                                     </div>
                                     <div class="featured-thumb-data shadow-one">
                                         <div class="p-4">
-                                            <h5 class="text-secondary hover-text-primary mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0'];?>"><?php echo $row['1'];?></a></h5>
+                                            <h5 class="text-secondary hover-text-primary mb-2 text-capitalize"><?php echo $row['1'];?></h5>
                                             <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-primary"></i> <?php echo $row['15'];?></span> </div>
                                         <!-- <div class="px-4 pb-4 d-inline-block w-100">
                                             <div class="float-left text-capitalize"><i class="fas fa-user text-primary mr-1"></i>By : <?php echo $row['uname'];?></div>
@@ -133,6 +134,7 @@ include("config.php");
                                         </div> -->
                                     </div>
                                 </div>
+                                </a>
                             </div>
                             <?php 		
 										} 

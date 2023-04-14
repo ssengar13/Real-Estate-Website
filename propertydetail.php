@@ -116,7 +116,7 @@ if(isset($_POST['send']))
 						$id=$_REQUEST['pid']; 
                         // $query=mysqli_query($con,"SELECT * FROM `property` where ");
 						
-                        $query=mysqli_query($con,"SELECT property.*, user.* FROM `property`,`user` WHERE property.uid=user.uid and pid='$id'");
+                        $query=mysqli_query($con,"SELECT property.*, user.* FROM `property`,`user` WHERE property.uid=user.uid and pid='$id limit 1'");
 						while($row=mysqli_fetch_array($query))
 						{
 					  ?>
@@ -173,14 +173,15 @@ if(isset($_POST['send']))
                                 <table class="w-100">
                                     <tbody>
                                         <tr>
-                                            <td>BHK :</td>
-                                            <td class="text-capitalize"><?php echo $row['4'];?></td>
+                                            
                                             <td>Property Type :</td>
                                             <td class="text-capitalize"><?php echo $row['3'];?></td>
                                         </tr>
                                         <tr>
-                                            <td>Floor :</td>
-                                            <td class="text-capitalize"><?php echo $row['11'];?></td>
+                                        <!--    <td>Floor :</td>-->
+                                        <!--    <td class="text-capitalize"><?php echo $row['11'];?></td>-->
+                                        <td>BHK :</td>
+                                            <td class="text-capitalize"><?php echo $row['4'];?></td>
                                             <td>Total Floor :</td>
                                             <td class="text-capitalize"><?php echo $row['25'];?></td>
                                         </tr>

@@ -207,12 +207,11 @@ if(isset($_POST['add']))
 													<div class="col-lg-9">
 														<select class="form-control" required name="ptype">
 															<option value="">Select Type</option>
-															<option value="appartment">Appartment</option>
+															<option value="apartment">Apartment</option>
 															<option value="flat">Flat</option>
-															<option value="bunglow">Bunglow</option>
-															<option value="house">House</option>
-															<option value="villa">Villa</option>
-															<option value="office">Office</option>
+															<option value="bungalow">Bungalow</option>
+															
+															<option value="commercial">Commercial</option>
 														</select>
 													</div>
 												</div>
@@ -223,6 +222,7 @@ if(isset($_POST['add']))
 															<option value="">Select Status</option>
 															<option value="rent">Rent</option>
 															<option value="sale">Sale</option>
+															<option value="Rent/sale">Rent/Sale</option>
 														</select>
 													</div>
 												</div>
@@ -252,8 +252,9 @@ if(isset($_POST['add']))
 															<option value="4 BHK">4 BHK</option>
 															<option value="5 BHK">5 BHK</option>
 															<option value="1,2 BHK">1,2 BHK</option>
-															<option value="2,3 BHK">2,3 BHK</option>
-															<option value="2,3,4 BHK">2,3,4 BHK</option>
+															<option value="1,2,3 BHK">1,2,3 BHK</option>
+															<option value="1,2,3,4 BHK">1,2,3,4 BHK</option>
+															<option value="Office space">Office space</option>
 														</select>
 													</div>
 												</div>
@@ -284,31 +285,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Floor</label>
 													<div class="col-lg-9">
-														<select class="form-control" required name="floor">
-															<option value="">Select Floor</option>
-															<option value="1 Floor">1 Floor</option>
-															<option value="2 Floor">2 Floor</option>
-															<option value="3 Floor">3 Floor</option>
-															<option value="4 Floor">4 Floor</option>
-															<option value="5 Floor">5 Floor</option>
-															<option value="6 Floor">6 Floor</option>
-															<option value="7 Floor">7 Floor</option>
-															<option value="8 Floor">8 Floor</option>
-															<option value="9 Floor">9 Floor</option>
-															<option value="10 Floor">10 Floor</option>
-															<option value="11 Floor">11 Floor</option>
-															<option value="12 Floor">12 Floor</option>
-															<option value="13 Floor">13 Floor</option>
-															<option value="14 Floor">14 Floor</option>
-															<option value="15 Floor">15 Floor</option>
-															<option value="16 Floor">16 Floor</option>
-															<option value="17 Floor">17 Floor</option>
-															<option value="18 Floor">18 Floor</option>
-															<option value="19 Floor">19 Floor</option>
-															<option value="20 Floor">20 Floor</option>
-															<option value="21 Floor">21 Floor</option>
-															<option value="22 Floor">22 Floor</option>
-														</select>
+														<input type="text" class="form-control" name="Floor" required value="<?php echo $row['12']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -359,6 +336,10 @@ if(isset($_POST['add']))
 															<option value="20 Floor">20 Floor</option>
 															<option value="21 Floor">21 Floor</option>
 															<option value="22 Floor">22 Floor</option>
+															<option value="23 Floor">23 Floor</option>
+															<option value="24 Floor">24 Floor</option>
+															<option value="25 Floor">25 Floor</option>
+															<option value="26 Floor">26 Floor</option>
 														</select>
 													</div>
 												</div>
